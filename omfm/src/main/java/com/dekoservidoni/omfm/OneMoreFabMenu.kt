@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.content.ContextCompat
+import android.support.v4.view.ViewCompat
 import android.util.AttributeSet
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -361,6 +362,9 @@ class OneMoreFabMenu @JvmOverloads constructor(context: Context, attrs: Attribut
         label.setPadding(labelPadding, labelPadding, labelPadding, labelPadding)
         label.setTextColor(ColorStateList.valueOf(labelTextColor))
 
+        if (ViewCompat.getLayoutDirection(this) == ViewCompat.LAYOUT_DIRECTION_RTL) {
+            label.rotationX = 180F
+        }
         if(isFirst) {
             label.id = mainLabelId
             label.alpha = 0f
